@@ -1,0 +1,6 @@
+IDT:ddcb0c
+INP:df8b b6cc ee8d 855a 0000 0000 0000 0000 bf6b 9b7d 0000 0000 
+WRT:0000 dd cb 79 0c 
+WRT:bfe4 0d 
+OUT:df81 b6cc ee8d 865a 0000 0000 0000 0000 bf6b 9b7d 0000 0004 
+CHK:bfe4 86 

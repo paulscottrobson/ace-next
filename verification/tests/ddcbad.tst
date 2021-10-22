@@ -1,0 +1,6 @@
+IDT:ddcbad
+INP:fcc9 69a7 0eed eab5 0000 0000 0000 0000 eef5 3ed2 0000 0000 
+WRT:0000 dd cb 49 ad 
+WRT:ef3e 76 
+OUT:fcc9 69a7 0eed ea56 0000 0000 0000 0000 eef5 3ed2 0000 0004 
+CHK:ef3e 56 

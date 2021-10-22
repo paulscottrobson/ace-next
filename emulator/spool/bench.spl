@@ -1,0 +1,19 @@
+0 variable start
+: clock 15403 @ ;
+
+0 variable a 1 variable b
+
+: r1 ;
+
+: test clock start !
+	3000 0 do 
+		2 4 + a !
+		a @ b c!
+		r1 r1 r1 r1
+	loop 
+	clock start @ - ufloat 50.0 f/ f. ;
+
+: r 1 255 c! fast test ;
+: f 0 255 c! fast test ;
+: s 0 255 c! slow test ;	
+

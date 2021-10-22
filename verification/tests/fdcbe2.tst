@@ -1,0 +1,6 @@
+IDT:fdcbe2
+INP:11a9 bae8 938b bac4 0000 0000 0000 0000 d8ed e49c 0000 0000 
+WRT:0000 fd cb 50 e2 
+WRT:e4ec c2 
+OUT:11a9 bae8 d28b bac4 0000 0000 0000 0000 d8ed e49c 0000 0004 
+CHK:e4ec d2 

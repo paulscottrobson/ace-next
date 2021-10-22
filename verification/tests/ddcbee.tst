@@ -1,0 +1,6 @@
+IDT:ddcbee
+INP:79ea dc8a 7887 3baa 0000 0000 0000 0000 6c28 abbc 0000 0000 
+WRT:0000 dd cb de ee 
+WRT:6c06 bd 
+OUT:79ea dc8a 7887 3baa 0000 0000 0000 0000 6c28 abbc 0000 0004 
+

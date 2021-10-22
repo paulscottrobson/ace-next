@@ -1,0 +1,39 @@
+Frogger by Tim Skinner.
+(C) Boldfield Computing 1984.
+
+Load and run the program by entering:
+        load frogger go
+or for JOYSTICK control by entering:
+        load frogger joy go
+
+Introduction
+Help the five friendly forgs to cross the busy road, avoid the snake in
+the grass, navigate the river without getting wet - and into their safe
+little homes - the holes in the far side of the bank.
+
+The objective is to get each frog into a home without losing any in
+nasty accidents on the way
+
+Instructions
+Steer each frog (controls displayed during the program) through the
+hazards within the time allowed. The time remaining is shown graphically
+at the bottom of the screen.
+
+In case of emergency you can disappear off one side of the screen and
+reappear on the other - but you lose points for doing so.
+
+The grass is a safe resting place, but watch out for the hungry snake !
+
+Turtles are good to use as stepping stones in the river but when they
+turn white they are getting ready to dive - and our friendly frogs would
+drown if they fell in the water !
+
+You have only three lives, and things get more difficult as the game
+gets going !
+
+Joystick Control
+
+Up, Down, Left and Right are the only directions allowed.
+The fire button can be used in place of ENTER.
+
+

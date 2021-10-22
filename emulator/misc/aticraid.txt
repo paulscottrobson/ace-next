@@ -1,0 +1,44 @@
+Atic Raid by Tim Skinner
+(C) Boldfield Computing Ltd 1984
+
+Load and run the program by entering:
+        load atic go
+or for JOYSTICK control by entering:
+        load atic joy go
+
+Introduction
+
+It was a nasty day to be caught out on the moors as dusk fell. Worse still
+you are all alone, searated from the rest when the storm broke. Luckily
+you came across some shelter.
+
+HAUNTED HALL it said on the broken nameplate, as you swung open the huge
+oak door and stepped into the dank passageway. Strange to see so many
+coffins about the place.
+
+That's funny, the way out has just vanished ... 'better take a look
+upstairs. Not much here, just a few more coffins and a bundle of old
+boomerangs ... let's try the attic ...
+
+Instructions
+
+Escape !
+
+HINT
+
+The attic has 100 rooms, each has a nasty ghost and most have
+poltergeists as well ! Some rooms contain useful items (collected
+by positioning over them). Each room is slightly different, and
+they are interconnected by doorways (in the walls) and
+passageways (in the floors). Your only efence is by moving
+out of the way, or by throwing a boomerang in the opposite
+direction to your movement.
+
+If you make it to the MAZE, you must be good enough to get out without
+any more tips !
+
+Joystick Control
+
+Up, Down, Left and Right are the only directions allowed.
+The fire button can be used in place of ENTER.
+

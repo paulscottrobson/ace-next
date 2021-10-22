@@ -1,0 +1,104 @@
+              	; --------------------------------------
+              	; zasm: assemble "test.asm"
+              	; date: 2021-09-29 17:41:02
+              	; --------------------------------------
+
+
+0000:         		.org 0
+0000: C32001  		jp start
+0003: FFFFFFFF		.org $100
+0007: FF...   	
+0100:         	regstore:
+0100: FFFFFFFF		ds 32
+0104: FF...   	
+0120:         	start:
+0120: 3100F0  		ld sp,$F000
+0123: CD5C01  		call setupexit
+0126: 3E44    		ld a,$44
+0128: 320000  		ld ($0000),a
+012B: 3E50    		ld a,$50
+012D: 3269A1  		ld ($a169),a
+0130:         	setupmemory:
+0130: 210000  		ld hl,$0000
+0133: E5      		push hl
+0134: F1      		pop af
+0135: 010000  		ld bc,$0000
+0138: 110000  		ld de,$0000
+013B: 210000  		ld hl,$0000
+013E: 08      		ex af,af'
+013F: D9      		exx
+0140: 210002  		ld hl,$0200
+0143: E5      		push hl
+0144: F1      		pop af
+0145: 0198CF  		ld bc,$cf98
+0148: 11D890  		ld de,$90d8
+014B: 2169A1  		ld hl,$a169
+014E: DD210000		ld ix,$0000
+0152: FD210000		ld iy,$0000
+0156: 310000  		ld sp,$0000
+0159: C30000  		jp $0000
+015C:         	setupexit:
+015C: 3EC3    		ld a,$C3
+015E: 320100  		ld ($0001),a
+0161: 210004  		ld hl,$400
+0164: 220200  		ld ($0002),hl
+0167: C9      		ret
+0168: FFFFFFFF		.org $400
+016C: FF...   	
+0400: DD221001		ld (regstore+8*2),ix
+0404: FD221201		ld (regstore+9*2),iy
+0408: ED731401		ld (regstore+10*2),sp
+040C: 3100F0  		ld sp,$F000
+040F: ED430201		ld (regstore+1*2),bc
+0413: ED530401		ld (regstore+2*2),de
+0417: 220601  		ld (regstore+3*2),hl
+041A: F5      		push af
+041B: E1      		pop hl
+041C: 220001  		ld (regstore+0*2),hl
+041F: 08      		ex af,af'
+0420: D9      		exx
+0421: ED430A01		ld (regstore+5*2),bc
+0425: ED530C01		ld (regstore+6*2),de
+0429: 220E01  		ld (regstore+7*2),hl
+042C: F5      		push af
+042D: E1      		pop hl
+042E: 220801  		ld (regstore+4*2),hl
+0431: 3A0006  		ld a,(correct+0)
+0434: E6D7    		and a,$D7
+0436: 320006  		ld (correct+0),a
+0439: 3A0806  		ld a,(correct+8)
+043C: E6D7    		and a,$D7
+043E: 320806  		ld (correct+8),a
+0441: 210001  		ld hl,regstore
+0444: 110006  		ld de,correct
+0447: 0616    		ld b,11*2
+0449:         	checkloop:
+0449: 1A      		ld a,(de)
+044A: BE      		cp (hl)
+044B: 2801    		jr z,$+3
+044D: 76      		halt
+044E: 13      		inc de
+044F: 23      		inc hl
+0450: 10F7    		djnz checkloop
+0452: C31806  		jp checkmemory
+0455: FFFFFFFF		.org $600
+0459: FF...   	
+0600:         	correct:
+0600: 0002    		.dw $0200
+0602: 98A1    		.dw $a198
+0604: D890    		.dw $90d8
+0606: 69A1    		.dw $a169
+0608: 0000    		.dw $0000
+060A: 0000    		.dw $0000
+060C: 0000    		.dw $0000
+060E: 0000    		.dw $0000
+0610: 0000    		.dw $0000
+0612: 0000    		.dw $0000
+0614: 0000    		.dw $0000
+0616: 0100    		.dw $0001
+0618:         	checkmemory:
+0618: C3FFFF  		jp $FFFF
+
+
+total time: 0.0006 sec.
+no errors

@@ -1,0 +1,1 @@
+../emulator/vznext test.rom 

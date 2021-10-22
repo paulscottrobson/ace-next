@@ -1,0 +1,6 @@
+IDT:fdcb30
+INP:acf6 e832 f9ed cabc 0000 0000 0000 0000 fabd d646 0000 0000 
+WRT:0000 fd cb 1b 30 
+WRT:d661 a5 
+OUT:ac0d 4b32 f9ed cabc 0000 0000 0000 0000 fabd d646 0000 0004 
+CHK:d661 4b 

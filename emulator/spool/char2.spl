@@ -1,0 +1,27 @@
+: row over c! 1+ ;
+: block 0 do over c@ row swap 1+ swap loop ;
+: reset 7547 11520 31 0 do 0 row 7 block loop 32 0
+  do 0 row 6 block 0 row loop 32 0 do 0 row 7 block
+  loop 8 block abort ;
+: test 127 32 do i emit loop 4 1 do i emit loop ;
+: capital 7764 11768 32 0 do 2 block swap 4 + swap 6 +
+  loop drop drop ;
+: lcase 1 1 4 4 4 1 4 1 4 1 4 7977 12048 11 0
+  do 3 pick block 3 pick - swap rot - 7 + swap 8 +
+  loop drop drop ;
+: descenders 4 6 64 64 56 68 11272 dup 24 0
+  do 0 row loop drop 3 0 do 2 0 do swap row loop 6 +
+  loop drop 8141 12237 8085 12173 8078 12165 8035 12117
+  8015 12093 5 0 do 3 block drop drop loop ;
+32 variable nn
+: print ;
+: dtype 32 nn ! find dup 6 + swap 5 - @ 13 - begin
+  dup 32 > if else dup nn ! then nn @ 0>
+  while begin inkey dup 80 = if print then
+  until nn @ - swap dup nn @ + swap nn @
+  type swap 32 nn @ - spaces 32 0 do 113 113 113 112 112 121 106 103
+  0 15388 @ 32 - c@ 8 0 do dup 4 roll = rot + swap
+  loop drop dup if else drop 32 then emit loop
+  repeat drop drop ;
+: p1 ." abcdefghijklmnopqrstuvwxyz" ;
+: p2 ;

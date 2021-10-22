@@ -1,0 +1,31 @@
+0 variable a
+0 variable x
+0 variable w
+0 variable y
+0 variable z
+0 variable sd
+0 variable k
+
+: b 9856 9216 do i c@ 1 = 0= if 2 i c! then loop
+  5 y @ c! 5 z @ c! y @ z @ = if 8 y @ c! then
+  k @ dup 2 > if 1- then k ! ;
+: rnd sd @ 75 u* 75 0 d+ over over u< - - 1- dup sd ! u* swap drop ;
+: cps swap over c@ + swap c! ;
+: m inkey dup dup 52 > swap 57 < and if 52 - dup
+  4 mod 1 > 31 * 1+
+  swap 3 < -2 * 1+ *
+  x @ + dup c@ dup
+  1 = 0= if
+  32 x @ c! 2 = if
+  a @ 1+ dup dup a ! 21 0 at .
+  326 mod 0= if b then
+  then 3 over c! x !
+  99 40 beep else
+  drop drop then else drop then ;
+: h w @ + dup c@ 1 = 0= k @ rnd 0= and if 253 w @ cps
+  3 over cps w ! else drop then ;
+: g w @ dup x @ 16 - < 32 * swap x @ 16 + > -32 * + h
+  w @ 32 mod x @ 32 mod > -2 * 1 + h ;
+: run fast 9249 x ! 9339 y ! 9479 z ! 0 a ! 6 k ! b
+  3 9249 c! begin m z @ w ! g w @ z ! y @ w ! g w @ y !
+  x @ dup y @ = swap z @ = or until slow 999 999 beep ;

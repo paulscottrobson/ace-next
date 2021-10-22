@@ -1,0 +1,6 @@
+IDT:fdcb2a
+INP:f236 8c31 5932 7feb 0000 0000 0000 0000 7db7 abe7 0000 0000 
+WRT:0000 fd cb f9 2a 
+WRT:abe0 dd 
+OUT:f2ad 8c31 ee32 7feb 0000 0000 0000 0000 7db7 abe7 0000 0004 
+CHK:abe0 ee 

@@ -1,0 +1,6 @@
+IDT:ddcbf5
+INP:d83f 1ec9 d0da 4173 0000 0000 0000 0000 eb3f 1ead 0000 0000 
+WRT:0000 dd cb 64 f5 
+WRT:eba3 c5 
+OUT:d83f 1ec9 d0da 41c5 0000 0000 0000 0000 eb3f 1ead 0000 0004 
+

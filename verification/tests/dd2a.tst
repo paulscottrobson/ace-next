@@ -1,0 +1,6 @@
+IDT:dd2a
+INP:3d36 b24e bdbc ca4e 0000 0000 0000 0000 ba65 e7ce 0000 0000 
+WRT:0000 dd 2a bc 40 
+WRT:40bc b5 30 
+OUT:3d36 b24e bdbc ca4e 0000 0000 0000 0000 30b5 e7ce 0000 0004 
+

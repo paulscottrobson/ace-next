@@ -1,0 +1,69 @@
+# *****************************************************************************
+# *****************************************************************************
+#
+#		Name:		callreturn.src
+#		Author:		Paul Robson (paul@robsons.org.uk)
+#		Date:		22nd October 2021
+#		Reviewed: 	No
+#		Purpose:	Call and Return
+#
+# *****************************************************************************
+# *****************************************************************************
+
+#
+# 		16 bit calls
+#
+CD 		"CALL $2" 10
+		CALL(1)
+
+C4 		"CALL @test,$2" 10
+		CALL(TEST@test())
+
+#
+# 		Returns
+#
+C9 		"RET" 4
+		RETURN(1)		
+
+C0 		"RET @test" 5
+		RETURN(TEST@test())		
+
+#
+# 		Restarts are done this way beause I'm going to mangle them.
+#		
+C7 		"RST $00" 11
+		PUSH(PC);PC = 0x00;
+
+CF 		"RST $08" 11
+		PUSH(PC);PC = 0x08;
+
+D7 		"RST $10" 11
+		PUSH(PC);PC = 0x10;
+
+DF 		"RST $18" 11
+		PUSH(PC);PC = 0x18;
+
+#
+# 		RST20 reports errors, so we stop spooling if an error occurred.
+#
+E7 		"RST $20" 11
+		PUSH(PC);PC = 0x20;
+		HWStopSpooling()
+
+EF 		"RST $28" 11
+		PUSH(PC);PC = 0x28;
+
+F7 		"RST $30" 11
+		PUSH(PC);PC = 0x30;
+
+FF 		"RST $38" 11
+		PUSH(PC);PC = 0x38;
+
+#
+# 		Semi functional interrupt returns.
+#
+ED4D 	"RETI" 14
+		RETURN(1)		
+
+ED45 	"RETN" 14
+		RETURN(1)		

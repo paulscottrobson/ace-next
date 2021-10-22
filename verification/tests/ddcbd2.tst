@@ -1,0 +1,6 @@
+IDT:ddcbd2
+INP:5bb6 caa8 e0db af84 0000 0000 0000 0000 b9a1 7b5f 0000 0000 
+WRT:0000 dd cb 9c d2 
+WRT:b93d 9c 
+OUT:5bb6 caa8 9cdb af84 0000 0000 0000 0000 b9a1 7b5f 0000 0004 
+

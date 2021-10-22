@@ -1,0 +1,9 @@
+: dd dup 16 + dup rot do
+  i c@ 256 + 2 base c!
+  . decimal 32 emit i . cr
+  loop ;
+: change01 11264 48 8 * + 8 0 do
+  dup 128 swap c! 8 +
+  dup 255 swap c! 7 -
+  loop 1- 255 swap c! ;
+

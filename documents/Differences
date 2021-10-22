@@ -1,0 +1,33 @@
+Differences
+===========
+
+The speed is not exact. Wait states on VRAM are not implemented. In fast mode, the speed can be pretty much anything, as it is
+dependent on what you are doing especially on the ESP32. If the whole thing is Z80 assembler the speed up will not be significant.
+
+Colour is implemented by the ETI April 1984 Project "Adding Colour to the Ace", which can be ignored, which is writing a
+colour byte to $2700 (needs to be reset to zero afterwards) and when you write to Character RAM, it is copied in. 
+Doesn't affect ACE programs normally, except they are in green.
+
+The font table is not guaranteed to be in ROM. It has been moved elsewhere and loaded on demand at the same point in ROM, 
+but the space it used might be reused for other things. I'm not quite sure why any dev. would access it, but anyway.
+
+Various bytes of ROM are tweaked , concerned with Tape I/O, spooling or optimisation. The "load/verify bytes" and "write bytes"
+routines just are replaced by "Pseudo Op" RET. Direct access tape I/O (e.g. via IN/OUT) will not work. 
+
+Tapes work slightly differently. .TAP files are kept in a subdirectory "storage" or in SPIFFS with the filenames in *lower case*.
+load xxxx and save xxx work as usual, except they ignore the name stored in the file, and xxxx is the physical file name.
+
+There is no load without a word now, and it does not make sensee (which file would it choose?), so this currently displays 
+the files in the storage directory or SPIFFS, e.g. it's a directory listing.
+
+However a file built from multiple TAPs should still work. The only identity that matters is the first one.
+
+Running the emulator with a parameter will load it as a spool file e.g. acenext program.txt go (the go makes it automatically 
+run rather than entering the debugger), which is like typing it in very fast. (Very fast !). Spooling stops when an error occurs
+but the position it stops is only approximate, rather surprisingly. Near enough though.
+
+Spooling is not available on hardware versions.
+
+The clock is set from the system clock, not from the number of interrupts. This allows speeding up of the system without
+timing being thrown out. However, it does mean that if you stop for debugging the clock will jump.
+

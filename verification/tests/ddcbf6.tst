@@ -1,0 +1,6 @@
+IDT:ddcbf6
+INP:4d6c 93ac 810d cfe1 0000 0000 0000 0000 dc5a c33c 0000 0000 
+WRT:0000 dd cb 7b f6 
+WRT:dcd5 a2 
+OUT:4d6c 93ac 810d cfe1 0000 0000 0000 0000 dc5a c33c 0000 0004 
+CHK:dcd5 e2 

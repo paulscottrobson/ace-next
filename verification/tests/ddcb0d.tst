@@ -1,0 +1,6 @@
+IDT:ddcb0d
+INP:bae3 ceec bbaa b65e 0000 0000 0000 0000 88bd 503e 0000 0000 
+WRT:0000 dd cb e4 0d 
+WRT:88a1 1f 
+OUT:ba89 ceec bbaa b68f 0000 0000 0000 0000 88bd 503e 0000 0004 
+CHK:88a1 8f 

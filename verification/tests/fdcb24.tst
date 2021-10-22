@@ -1,0 +1,6 @@
+IDT:fdcb24
+INP:1c51 da3e cc7c cb19 0000 0000 0000 0000 572c affe 0000 0000 
+WRT:0000 fd cb b4 24 
+WRT:afb2 7e 
+OUT:1cac da3e cc7c fc19 0000 0000 0000 0000 572c affe 0000 0004 
+CHK:afb2 fc 

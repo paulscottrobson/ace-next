@@ -1,0 +1,6 @@
+IDT:ddcba4
+INP:dfaa ae40 02c3 e0b5 0000 0000 0000 0000 fe4d faa3 0000 0000 
+WRT:0000 dd cb 03 a4 
+WRT:fe50 27 
+OUT:dfaa ae40 02c3 27b5 0000 0000 0000 0000 fe4d faa3 0000 0004 
+

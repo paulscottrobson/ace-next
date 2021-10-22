@@ -1,0 +1,23 @@
+0 variable x
+0 variable y
+0 variable colour
+: x+ x @ 1+ x ! ;
+: x- x @ 1- x ! ;
+: y+ y @ 1+ y ! ;
+: y- y @ 1- y ! ;
+: up inkey 116 = y @ 45 < and if y+ then ;
+: down inkey 98 = y @ 0> and if y- then ;
+: right inkey 104 = x @ 63 < and if x+ then ;
+: left inkey 102 = x @ 0> and if x- then ;
+: diag1 inkey 114 = x @ 0> y @ 45 < and and if x- y+ then ;
+: diag2 inkey 118 = x @ 0> y @ 0> and and if x- y- then ;
+: diag3 inkey 121 = x @ 63 < y @ 45 < and and if x+ y+ then ;
+: diag4 inkey 110 = x @ 63 < y @ 0> and and if x+ y- then ;
+: change colour @ if 0 colour ! else 1 colour ! then ;
+: colour? inkey = 48 if change 50 200 beep then ;
+: input? colour? up down right left diag1 diag2 diag3 diag4 ;
+: zero cls 21 y ! 31 x ! 0 colour ! ;
+: draw x @ y @ colour @ plot ;
+: flash change 250 0 do loop ;
+: drawer zero begin input? draw flash draw flash 0 until ;
+

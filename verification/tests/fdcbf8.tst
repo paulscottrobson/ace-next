@@ -1,0 +1,6 @@
+IDT:fdcbf8
+INP:fa29 ee74 d7c4 afaf 0000 0000 0000 0000 512c de7a 0000 0000 
+WRT:0000 fd cb 54 f8 
+WRT:dece 7a 
+OUT:fa29 fa74 d7c4 afaf 0000 0000 0000 0000 512c de7a 0000 0004 
+CHK:dece fa 

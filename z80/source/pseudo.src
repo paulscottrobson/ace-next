@@ -1,0 +1,85 @@
+# *****************************************************************************
+# *****************************************************************************
+#
+#		Name:		pseudo.src
+#		Author:		Paul Robson (paul@robsons.org.uk)
+#		Date:		22nd October 2021
+#		Reviewed: 	No
+#		Purpose:	Pseudo operations that speed up or provide support.
+#
+# *****************************************************************************
+# *****************************************************************************
+
+#
+# 		Copies FONT into RAM from internal storage
+#
+EDF0 "FONT" 0
+		CPUCopyCharacterSet();
+
+#
+# 		Copies a prompt into the PAD and calls PRINTHL to display it.	
+#
+EDF1 "PROMPT" 0
+		CPUNewPrompt();
+		
+#
+# 		Loads/Verifies a current TAP block.
+# 
+# 		Patched at $18A7, standard ROM
+#			HL = Target address
+#			DE = Length
+#			CS = Load/CC = Verify.
+#		Exit:
+#			CS = Good, CC = Bad
+#
+EDF2 "LTAP"	1	
+		c_Flag = TAPELoadBlock(HL(),DE(),c_Flag != 0);
+
+#
+# 		Identifies a tap block. The PAD contains the name typed at $2301.
+#		This replaces code which sets DE, hence it is set here.
+#
+EDF3 "FILE" 1
+		TAPLoadTAPFile(0x2302);
+		D = 0x00;
+		E = 0x19;
+
+#
+# 		Saves a TAP block/part tap block
+#		
+#		Patches at $1820
+#			HL = Data
+# 			DE = Length
+# 			
+# 		Called twice with HL = $2302,DE = $19 and HL/DE = <something else>
+# 		The former is the header, so this creates a new TAP file , which is 
+# 		saved on the second under the name (@$2302) recorded at the start.
+#
+EDF4 "STAP" 1
+		TAPSaveTAPBlock(HL(),DE())
+
+
+#
+# 		Patches the keyboard read routine. Replaces LD HL,$3C28, which is done first.
+#
+# 		If the keyboard is waiting for a key (in the loop at $059B) then give it a key
+# 		if one is available, setting bit 0 of $3C28 to indicate this.
+#
+EDF5 "SPOOL" 1
+		H = 0x3C;L = 0x28;
+		if ((ramMemory[0x3C28] & 0x20) == 0) {
+			temp8 = HWReadSpoolCharacter();
+			if (temp8 != 0) {
+				A = temp8;
+				ramMemory[0x3C28] |= 1;
+			}
+		}
+
+#
+# 		Updates the system clock at $3C2B..$3C2E from the physical clock.
+#
+#		
+EDF6 "CLOCK" 1
+		temp32 = HWXGetSystemClock() / 20;
+		WRITE16(0x3C2B,temp32 & 0xFFFF);
+		WRITE16(0x3C2D,temp32 >> 16);

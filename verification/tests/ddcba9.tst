@@ -1,0 +1,6 @@
+IDT:ddcba9
+INP:4fb8 ccb5 3e9a 2673 0000 0000 0000 0000 0fdd aef2 0000 0000 
+WRT:0000 dd cb 9d a9 
+WRT:0f7a 1f 
+OUT:4fb8 cc1f 3e9a 2673 0000 0000 0000 0000 0fdd aef2 0000 0004 
+

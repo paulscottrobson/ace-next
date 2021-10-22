@@ -1,0 +1,6 @@
+IDT:fdcb6b
+INP:bbe5 9e6c abd1 515f 0000 0000 0000 0000 73db aa2f 0000 0000 
+WRT:0000 fd cb 1f 6b 
+WRT:aa4e 7c 
+OUT:bb39 9e6c abd1 515f 0000 0000 0000 0000 73db aa2f 0000 0004 
+

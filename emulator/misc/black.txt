@@ -1,0 +1,27 @@
+Black Island Adventure by Phil Collins and Geoffrey Waller
+(C) Boldfield Computing Ltd 1984
+
+Load and run the program by entering
+        load black island
+
+Further instructions telling you when to STOP or reSTART the tape appear
+on the screen and should be obeyed immediately. The adventure consists of
+four chapters in all, the first one taking place in THE PORT (known
+as section ..por)
+
+HOW TO PLAY
+
+To move around, use compoass points and up or down. These are entered
+simply as U D N NE E .... etc. The program also understands a wide range
+of other commands and these are either single word actions (such as
+DISEMBARK) or two work phrases (such as KILL PARROT). You can pick up
+and put down objects using GET,TAKE,DROP etc. and you can check what
+you are carrying by entering INV (for Inventory). You can check where
+you are by entering LOOK.
+
+Of course, there are many more useful words which you must discover for
+yourself ! The program will not allow you to miss out chapters, but it
+will permit you to move on even though you are not fully equipped to do
+so ! To complete the adventure in the most successful way is fairly
+difficult, and provides the player with many hours of fun and
+frustration.

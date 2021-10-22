@@ -1,0 +1,2 @@
+: cps swap over c@ + swap c! ;
+: m inkey ;

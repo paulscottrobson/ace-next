@@ -1,0 +1,5 @@
+IDT:dda5
+INP:baaf a675 d757 f1db 0000 0000 0000 0000 fdef d8ce 0000 0000 
+WRT:0000 dd a5 
+OUT:aabc a675 d757 f1db 0000 0000 0000 0000 fdef d8ce 0000 0002 
+

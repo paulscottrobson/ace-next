@@ -1,0 +1,6 @@
+IDT:ddcb67
+INP:eccb 342f be3e a79b 0000 0000 0000 0000 eea1 dfae 0000 0000 
+WRT:0000 dd cb d7 67 
+WRT:ee78 06 
+OUT:ec7d 342f be3e a79b 0000 0000 0000 0000 eea1 dfae 0000 0004 
+
