@@ -1,0 +1,17 @@
+The shambles that is Windows seems to now require
+
+	libwinpthread-1.dll
+	sdl2.dll
+
+which are in a ZIP file in case they get removed by github.
+
+It also requires, to build (I installed using chocolatey)
+
+	Mingw32
+	Make
+	SDL2 x64 bit copied to c:\ so c:\sdl2 has bin include lib share in it
+
+and lots of faffing about.
+
+Linux, of course, compiled it just the same as it has done for years.
+

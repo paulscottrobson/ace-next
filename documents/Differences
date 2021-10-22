@@ -4,6 +4,9 @@ Differences
 The speed is not exact. Wait states on VRAM are not implemented. In fast mode, the speed can be pretty much anything, as it is
 dependent on what you are doing especially on the ESP32. If the whole thing is Z80 assembler the speed up will not be significant.
 
+You can turn on fast mode by writing to 255 e.g. 0 255 c! off 1 255 c! on. On the PC this should be about equivalent to a
+33Mhz Z80 (e.g. about 10x faster). On ESP32 it depends, at worst you'll get almost nothing.
+
 Colour is implemented by the ETI April 1984 Project "Adding Colour to the Ace", which can be ignored, which is writing a
 colour byte to $2700 (needs to be reset to zero afterwards) and when you write to Character RAM, it is copied in. 
 Doesn't affect ACE programs normally, except they are in green.

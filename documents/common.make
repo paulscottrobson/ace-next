@@ -14,9 +14,9 @@ CDELQ = >NUL
 APPSTEM = .exe
 S = \\
 SDLDIR = C:\\sdl2
-CXXFLAGS = -I$(SDLDIR)$(S)include$(S)SDL2 -I . 
+CXXFLAGS = -I$(SDLDIR)$(S)include$(S)SDL2 -I . -fno-stack-protector -w -Wl,-subsystem,windows -DSDL_MAIN_HANDLED
 LDFLAGS = -lmingw32 
-SDL_LDFLAGS = -L$(SDLDIR)$(S)lib -lSDL2 -lSDL2main 
+SDL_LDFLAGS = -L$(SDLDIR)$(S)lib -lSDL2 -lSDL2main -static-libstdc++ -static-libgcc
 else
 CCOPY = cp
 CDEL = rm -f

@@ -9,7 +9,7 @@ endif
 
 all: 
 #	zasm -u -b rom.listing -o assembled.rom.bin -l assembled.rom.lst
-	cmp assembled.rom.bin rom.bin
+#	cmp assembled.rom.bin rom.bin
 	ruby export.rb
 	ruby scancodes.rb
 	ruby keyboard.rb
