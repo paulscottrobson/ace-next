@@ -233,6 +233,10 @@ case 0xbb: /**** $bb:otdr ****/
 	do { OUTPORT(C,READ8(HL())); B--; DECHL(); SETNZ(B); SETNFLAG(1); cycles+=21; } while (B != 0);;
 	CYCLES(16);break;
 
+case 0xe0: /**** $e0:popa bc ****/
+	temp16 = READ16(0x3C3B)-2; C = READ8(temp16); B = READ8(temp16+1); WRITE16(0x3C3B,temp16); SETHL(temp16);;
+	CYCLES(68);break;
+
 case 0xf0: /**** $f0:font ****/
 	CPUCopyCharacterSet();;
 	CYCLES(0);break;

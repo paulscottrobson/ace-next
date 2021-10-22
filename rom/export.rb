@@ -110,6 +110,10 @@ class MonitorROM < StandardROM
 		patch(0x0148,0xF6)
 		patch(0x0149,0x00)
 		patch(0x014A,0x00)
+		#
+		# 	EDE0 Patch
+		#
+		patch_ede0
 	end
 	#
 	# 		Patch ROM
@@ -117,6 +121,21 @@ class MonitorROM < StandardROM
 	def patch(addr,data)
 		@data[addr] = data
 	end
+	#
+	# 		Patch all CALL $084E with ED E0 00 
+	#
+	# 		These are manually checked just in case by chance the sequence appears elsewhere
+	#
+	def patch_ede0
+		(0..0x1FFC).each do |a|
+			if @data[a] == 0xCD and @data[a+1] == 0x4E and @data[a+2] == 0x08
+				@data[a] = 0xED
+				@data[a+1] = 0xE0
+				@data[a+2] = 0x00
+			end
+		end
+	end
+
 	#
 	# 		Disable ROM area by filling with NOP
 	#

@@ -15,3 +15,8 @@ and lots of faffing about.
 
 Linux, of course, compiled it just the same as it has done for years.
 
+This was built on 8.1 in VirtualBox (which didn't initially work because Windows
+had decided arbitrarily the driver signing was out of date) so it'll probably work
+in Windows 10 and Windows Paintjob.
+
+But who knows ?

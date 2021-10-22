@@ -862,8 +862,8 @@ case 0xd6: /**** $d6:sub $1 ****/
 	CYCLES(7);break;
 
 case 0xd7: /**** $d7:rst $10 ****/
-	PUSH(PC);PC = 0x10;;
-	CYCLES(11);break;
+	temp16 = READ16(0x3C3B); WRITE8(temp16,E); WRITE8(temp16+1,D); temp16 += 2; WRITE16(0x3C3B,temp16); SETHL(temp16);;
+	CYCLES(78);break;
 
 case 0xd8: /**** $d8:ret c ****/
 	RETURN(TESTC());
@@ -894,8 +894,8 @@ case 0xde: /**** $de:sbc $1 ****/
 	CYCLES(7);break;
 
 case 0xdf: /**** $df:rst $18 ****/
-	PUSH(PC);PC = 0x18;;
-	CYCLES(11);break;
+	temp16 = READ16(0x3C3B)-2; E = READ8(temp16); D = READ8(temp16+1); WRITE16(0x3C3B,temp16); SETHL(temp16);;
+	CYCLES(78);break;
 
 case 0xe0: /**** $e0:ret po ****/
 	RETURN(TESTPO());

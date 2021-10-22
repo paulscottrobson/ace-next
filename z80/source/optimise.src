@@ -1,0 +1,42 @@
+# *****************************************************************************
+# *****************************************************************************
+#
+#		Name:		optimise.src
+#		Author:		Paul Robson (paul@robsons.org.uk)
+#		Date:		22nd October 2021
+#		Reviewed: 	No
+#		Purpose:	Optimised operations
+#
+# *****************************************************************************
+# *****************************************************************************
+
+#
+#		RST 10 pushes DE on the stack
+#
+D7 		"RST $10" 78
+		temp16 = READ16(0x3C3B);
+		WRITE8(temp16,E);
+		WRITE8(temp16+1,D);
+		temp16 += 2;
+		WRITE16(0x3C3B,temp16);
+		SETHL(temp16);
+
+#
+# 		RST18 pops DE off the stack.
+#
+DF 		"RST $18" 78
+		temp16 = READ16(0x3C3B)-2;
+		E = READ8(temp16);
+		D = READ8(temp16+1);
+		WRITE16(0x3C3B,temp16);
+		SETHL(temp16);
+
+#
+# 		$EDE0 pops BC off the stack
+#
+EDE0 	"POPA BC" 68
+		temp16 = READ16(0x3C3B)-2;
+		C = READ8(temp16);
+		B = READ8(temp16+1);
+		WRITE16(0x3C3B,temp16);
+		SETHL(temp16);

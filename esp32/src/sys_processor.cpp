@@ -34,7 +34,7 @@ static WORD16 IX,IY; 																// IX IY accessed indirectly.
 static BYTE8 s_Flag,z_Flag,c_Flag,h_Flag,n_Flag,p_Flag; 							// Flag Registers
 static BYTE8 I,R,intEnabled; 														// We don't really bother with these much.
 
-static BYTE8 ramMemory[RAMSIZE];													// Memory at $0000 upwards
+static BYTE8 ramMemory[0x10000];													// Memory at $0000 upwards
 static BYTE8 colourLatch; 															// ETI Colour latch at $2700
 
 static LONG32 temp32;
@@ -250,7 +250,7 @@ BYTE8 CPUExecuteInstruction(void) {
 	if (cycles >= 0 ) return 0;														// Not completed a frame.
 	cycles = cycles + cyclesPerFrame;												// Adjust this frame rate, up to x16 on HS
 	#ifndef ESP32
-	if (fastMode != 0) cycles = cycles + cyclesPerFrame * 8; 						// Clocked at about 33Mhz fast mode.
+	if (fastMode != 0) cycles = 33 * 1024 * 1024 / FRAME_RATE; 						// Clocked at about 33Mhz fast mode.
 	#endif
 	HWSync();																		// Update any hardware
 	frameCount++;

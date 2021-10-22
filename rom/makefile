@@ -8,7 +8,7 @@ endif
 .PHONY: all 
 
 all: 
-#	zasm -u -b rom.listing -o assembled.rom.bin -l assembled.rom.lst
+#	zasm -u -y -b rom.listing -o assembled.rom.bin -l assembled.rom.lst
 #	cmp assembled.rom.bin rom.bin
 	ruby export.rb
 	ruby scancodes.rb

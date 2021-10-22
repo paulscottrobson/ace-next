@@ -30,18 +30,13 @@ C0 		"RET @test" 5
 
 #
 # 		Restarts are done this way beause I'm going to mangle them.
+#		If it's not here it's in optimise.src
 #		
 C7 		"RST $00" 11
 		PUSH(PC);PC = 0x00;
 
 CF 		"RST $08" 11
 		PUSH(PC);PC = 0x08;
-
-D7 		"RST $10" 11
-		PUSH(PC);PC = 0x10;
-
-DF 		"RST $18" 11
-		PUSH(PC);PC = 0x18;
 
 #
 # 		RST20 reports errors, so we stop spooling if an error occurred.

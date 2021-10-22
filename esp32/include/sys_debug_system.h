@@ -15,7 +15,7 @@
 #define _DEBUG_SYS_H
 #include "sys_processor.h"
 
-#define WIN_TITLE 		"Aquarius Emulator"											// Initial Window stuff
+#define WIN_TITLE 		"Ace (Extended) Emulator"									// Initial Window stuff
 #define WIN_WIDTH		(34*8*4)
 #define WIN_HEIGHT		(26*8*4)
 #define WIN_BACKCOLOUR	0x004
