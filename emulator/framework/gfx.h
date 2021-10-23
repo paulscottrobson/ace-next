@@ -53,6 +53,7 @@ private:
 public:
     Beeper();
     ~Beeper();
+    void initialise(void);
     void setFrequency(double freq);
     void generateSamples(Sint16 *stream, int length);
 };

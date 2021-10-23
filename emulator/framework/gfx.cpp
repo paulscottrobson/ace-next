@@ -53,6 +53,7 @@ void GFXOpenWindow(const char *title,int width,int height,int colour) {
 
 	background = colour;															// Remember required backgrounds.
 	_GFXInitialiseKeyRecord();														// Set up key system.
+	beeper.initialise();															// Initialise sound.
 }
 
 // *******************************************************************************************************************************
@@ -352,19 +353,21 @@ const int FREQUENCY = 44100;
 void audio_callback(void*, Uint8*, int);
 
 Beeper::Beeper()
-{
-    SDL_AudioSpec desiredSpec;
+{ }
 
+void Beeper::initialise(void) {
+    SDL_AudioSpec desiredSpec,obtainedSpec;
+    SDL_AudioDeviceID devID;
+    SDL_zero(desiredSpec);
     desiredSpec.freq = FREQUENCY;
     desiredSpec.format = AUDIO_S16SYS;
     desiredSpec.channels = 1;
-    desiredSpec.samples = 2048;
+    desiredSpec.samples = 1024;
     desiredSpec.callback = audio_callback;
     desiredSpec.userdata = this;
 
-    SDL_AudioSpec obtainedSpec;
-    SDL_OpenAudio(&desiredSpec, &obtainedSpec);
-    SDL_PauseAudio(0);
+	devID = SDL_OpenAudioDevice(NULL, 0, &desiredSpec, &obtainedSpec, 0);
+	SDL_PauseAudioDevice(devID,0);
     setFrequency(0);
 }
 
@@ -400,8 +403,8 @@ void Beeper::setFrequency(double f) {
 
 void audio_callback(void *_beeper, Uint8 *_stream, int _length)
 {
-    Sint16 *stream = (Sint16*) _stream;
-    int length = _length / 2;
+ 	short * stream = reinterpret_cast<short*>(_stream);
+    int length = _length / sizeof(short);
     Beeper* beeper = (Beeper*) _beeper;
     beeper->generateSamples(stream, length);
 }
@@ -409,4 +412,3 @@ void audio_callback(void *_beeper, Uint8 *_stream, int _length)
 void GFXSetFrequency(int freq) {
 	beeper.setFrequency(freq);
 }
-
