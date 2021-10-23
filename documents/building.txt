@@ -1,3 +1,15 @@
+Hardware
+--------
+
+The simplest hardware is the LilyGo TTGO VGA32 board which is about the size
+of a matchbox and has 2 PS/2 sockets on one end, a VGA socket on the other, and 
+a USB, SDCard (not used) and Audio Jack down the sides. They are cheap (< £10)
+
+There are various versions, some are missing the sound and SDCard, and some are
+just missing the SDCard. Any will work .... just no sound without the sound jack.
+
+USB->PS/2 adaptors are a couple of quid and easier than USB keyboards.
+
 Executables
 -----------
 
