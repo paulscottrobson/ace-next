@@ -1021,8 +1021,8 @@ case 0xfe: /**** $fe:cp $1 ****/
 	ALUCP(FETCH8());
 	CYCLES(7);break;
 
-case 0xff: /**** $ff:rst $38 ****/
-	PUSH(PC);PC = 0x38;;
-	CYCLES(11);break;
+case 0xff: /**** $ff:next ****/
+	temp16 = POP(); temp16a = READ16(temp16); temp16 += 2; PUSH(temp16); PC = READ16(temp16a); temp16a += 2; SETHL(PC); SETDE(temp16a);;
+	CYCLES(85);break;
 
 

@@ -40,3 +40,36 @@ EDE0 	"POPA BC" 68
 		B = READ8(temp16+1);
 		WRITE16(0x3C3B,temp16);
 		SETHL(temp16);
+
+#
+# 		RST38 is coopted for $04B9 .. $04C5. 
+#
+# 		There is only one byte space because of the entry at $04BA.
+#
+FF 		"NEXT" 	85
+		temp16 = POP();
+		temp16a = READ16(temp16);
+		temp16 += 2;
+		PUSH(temp16);
+
+		PC = READ16(temp16a);
+		temp16a += 2;
+
+		SETHL(PC);
+		SETDE(temp16a);
+
+#
+# 		This replaces the DOCOL code at $04BA and is almost identical
+# 		to FF/NEXT except HL is not popped from the stack.
+#
+EDE1 	"DOCOL" 	75
+		temp16 = HL();
+		temp16a = READ16(temp16);
+		temp16 += 2;
+		PUSH(temp16);
+
+		PC = READ16(temp16a);
+		temp16a += 2;
+
+		SETHL(PC);
+		SETDE(temp16a);

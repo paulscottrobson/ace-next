@@ -237,6 +237,10 @@ case 0xe0: /**** $e0:popa bc ****/
 	temp16 = READ16(0x3C3B)-2; C = READ8(temp16); B = READ8(temp16+1); WRITE16(0x3C3B,temp16); SETHL(temp16);;
 	CYCLES(68);break;
 
+case 0xe1: /**** $e1:docol ****/
+	temp16 = HL(); temp16a = READ16(temp16); temp16 += 2; PUSH(temp16); PC = READ16(temp16a); temp16a += 2; SETHL(PC); SETDE(temp16a);;
+	CYCLES(75);break;
+
 case 0xf0: /**** $f0:font ****/
 	CPUCopyCharacterSet();;
 	CYCLES(0);break;

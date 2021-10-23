@@ -114,6 +114,15 @@ class MonitorROM < StandardROM
 		# 	EDE0 Patch
 		#
 		patch_ede0
+		#
+		# 	Patch NEXT, goes straight to word address 
+		#
+		patch(0x04B9,0xFF)
+		#
+		# 	Patch BRANCH, DOCOL , goes straight to word address 
+		#
+		patch(0x04BA,0xED)
+		patch(0x04BB,0xE1)
 	end
 	#
 	# 		Patch ROM

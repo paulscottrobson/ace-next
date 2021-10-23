@@ -1,0 +1,58 @@
+Executables
+-----------
+
+Windows has the DLLs installed and should just run.
+
+Mac/Linux requires SDL2 to be installed to run.
+
+Building
+--------
+
+Builds will require ; the gcc compiler, SDL2, ruby
+
+Installing on ESP32 requires PlatformIO. 
+
+On my system it works straight off because there's only one USB serial 
+port. If you have more than one USB serial porrt you might have to tell
+platformio which to use. See platformio docs.
+
+Software
+--------
+
+TAP files go in the 'storage' directory under the directory the emulator
+is run from. If you use the makefile to build ESP32 it will copy files from 
+here to esp32/data for building. 
+
+ESP32 tap files are loaded into SPIFFS.
+
+Windows
+-------
+
+The shambles that is Windows seems to now require
+
+	libwinpthread-1.dll
+	sdl2.dll
+
+which are in a ZIP file in case they get removed by github.
+
+It also requires, to build (I installed most of it using chocolatey)
+
+	Mingw32
+	Make
+	Ruby
+	SDL2 x64 bit copied to c:\ so c:\sdl2 has bin include lib share in it
+
+and lots of faffing about.
+
+This was built on 8.1 in VirtualBox (which didn't initially work because Windows
+had decided arbitrarily the driver signing was out of date) so it'll probably work
+in Windows 10 and Windows Paintjob.
+
+But who knows ?
+
+If Windows is difficult about platformio/make in general ignore the makefile and run the last 
+two instructions in the makefile from the ESP32 directory
+
+	pio lib install 6143 	
+	pio run -t upload
+

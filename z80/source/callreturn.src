@@ -51,9 +51,6 @@ EF 		"RST $28" 11
 F7 		"RST $30" 11
 		PUSH(PC);PC = 0x30;
 
-FF 		"RST $38" 11
-		PUSH(PC);PC = 0x38;
-
 #
 # 		Semi functional interrupt returns.
 #
