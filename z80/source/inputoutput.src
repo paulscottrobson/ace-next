@@ -3,7 +3,7 @@
 #
 #		Name:		inputoutput.src
 #		Author:		Paul Robson (paul@robsons.org.uk)
-#		Date:		22nd October 2021
+#		Date:		24th October 2021
 #		Reviewed: 	No
 #		Purpose:	I/O opcodes
 #
@@ -60,7 +60,7 @@ EDB2 	"IN@direction#R" 16
 			@direction#HL();
 			SETNZ(B);
 			SETNFLAG(1);
-			cycles+=21;
+			CYCLES(21);
 		} while (B != 0);
 		
 EDB3 	"OT@direction#R" 16
@@ -70,6 +70,6 @@ EDB3 	"OT@direction#R" 16
 			@direction#HL();
 			SETNZ(B);
 			SETNFLAG(1);
-			cycles+=21;
+			CYCLES(21);
 		} while (B != 0);
 

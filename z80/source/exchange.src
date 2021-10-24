@@ -3,7 +3,7 @@
 #
 #		Name:		exchange.src
 #		Author:		Paul Robson (paul@robsons.org.uk)
-#		Date:		22nd October 2021
+#		Date:		24th October 2021
 #		Reviewed: 	No
 #		Purpose:	Exchange/Block Transfer (pp137..156)
 #
@@ -57,7 +57,7 @@ EDB0 	"LD@direction#R" 16
 			@direction#HL();
 			DECBC();
 			SETOVERFLOW(BC() != 0);
-			cycles += 21;
+			CYCLES(21);
 		} while (BC() != 0);
 		SETHALFCARRY(0);
 		SETNFLAG(0);
@@ -82,5 +82,5 @@ EDB1 	"CP@direction#R" 16
 			@direction#HL();
 			DECBC()
 			SETOVERFLOW(BC() != 0);
-			cycles += 21;
+			CYCLES(21);
 		} while( (BC()!= 0) && (z_Flag == 0) );
