@@ -202,35 +202,35 @@ case 0xab: /**** $ab:outd ****/
 	CYCLES(16);break;
 
 case 0xb0: /**** $b0:ldir ****/
-	do { WRITE8(DE(),READ8(HL())); INCDE(); INCHL(); DECBC(); SETOVERFLOW(BC() != 0); cycles += 21; } while (BC() != 0); SETHALFCARRY(0); SETNFLAG(0);;
+	do { WRITE8(DE(),READ8(HL())); INCDE(); INCHL(); DECBC(); SETOVERFLOW(BC() != 0); CYCLES(21); } while (BC() != 0); SETHALFCARRY(0); SETNFLAG(0);;
 	CYCLES(16);break;
 
 case 0xb1: /**** $b1:cpir ****/
-	do { oldCarry = c_Flag; ALUCP(READ8(HL())); c_Flag = oldCarry; INCHL(); DECBC() SETOVERFLOW(BC() != 0); cycles += 21; } while( (BC()!= 0) && (z_Flag == 0) );;
+	do { oldCarry = c_Flag; ALUCP(READ8(HL())); c_Flag = oldCarry; INCHL(); DECBC() SETOVERFLOW(BC() != 0); CYCLES(21); } while( (BC()!= 0) && (z_Flag == 0) );;
 	CYCLES(16);break;
 
 case 0xb2: /**** $b2:inir ****/
-	do { WRITE8(HL(),INPORT(BC())); B--; INCHL(); SETNZ(B); SETNFLAG(1); cycles+=21; } while (B != 0);;
+	do { WRITE8(HL(),INPORT(BC())); B--; INCHL(); SETNZ(B); SETNFLAG(1); CYCLES(21); } while (B != 0);;
 	CYCLES(16);break;
 
 case 0xb3: /**** $b3:otir ****/
-	do { OUTPORT(C,READ8(HL())); B--; INCHL(); SETNZ(B); SETNFLAG(1); cycles+=21; } while (B != 0);;
+	do { OUTPORT(C,READ8(HL())); B--; INCHL(); SETNZ(B); SETNFLAG(1); CYCLES(21); } while (B != 0);;
 	CYCLES(16);break;
 
 case 0xb8: /**** $b8:lddr ****/
-	do { WRITE8(DE(),READ8(HL())); DECDE(); DECHL(); DECBC(); SETOVERFLOW(BC() != 0); cycles += 21; } while (BC() != 0); SETHALFCARRY(0); SETNFLAG(0);;
+	do { WRITE8(DE(),READ8(HL())); DECDE(); DECHL(); DECBC(); SETOVERFLOW(BC() != 0); CYCLES(21); } while (BC() != 0); SETHALFCARRY(0); SETNFLAG(0);;
 	CYCLES(16);break;
 
 case 0xb9: /**** $b9:cpdr ****/
-	do { oldCarry = c_Flag; ALUCP(READ8(HL())); c_Flag = oldCarry; DECHL(); DECBC() SETOVERFLOW(BC() != 0); cycles += 21; } while( (BC()!= 0) && (z_Flag == 0) );;
+	do { oldCarry = c_Flag; ALUCP(READ8(HL())); c_Flag = oldCarry; DECHL(); DECBC() SETOVERFLOW(BC() != 0); CYCLES(21); } while( (BC()!= 0) && (z_Flag == 0) );;
 	CYCLES(16);break;
 
 case 0xba: /**** $ba:indr ****/
-	do { WRITE8(HL(),INPORT(BC())); B--; DECHL(); SETNZ(B); SETNFLAG(1); cycles+=21; } while (B != 0);;
+	do { WRITE8(HL(),INPORT(BC())); B--; DECHL(); SETNZ(B); SETNFLAG(1); CYCLES(21); } while (B != 0);;
 	CYCLES(16);break;
 
 case 0xbb: /**** $bb:otdr ****/
-	do { OUTPORT(C,READ8(HL())); B--; DECHL(); SETNZ(B); SETNFLAG(1); cycles+=21; } while (B != 0);;
+	do { OUTPORT(C,READ8(HL())); B--; DECHL(); SETNZ(B); SETNFLAG(1); CYCLES(21); } while (B != 0);;
 	CYCLES(16);break;
 
 case 0xe0: /**** $e0:popa bc ****/
